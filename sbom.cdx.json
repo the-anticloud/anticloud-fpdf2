@@ -1,0 +1,74 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:5ce0738b-fbc8-5b00-b425-eb71356f0128",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-08T17:03:56Z",
+    "component": {
+      "type": "application",
+      "name": "FPDF2",
+      "version": "f6e67a42eddb",
+      "bom-ref": "pkg:generic/anticloud/FPDF2@f6e67a42eddb",
+      "purl": "pkg:generic/anticloud/FPDF2@f6e67a42eddb",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "f6e67a42eddb112b4c31401388babf0daf6d1c5b"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/pyfpdf/fpdf2"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "defusedxml",
+      "version": "unspecified",
+      "purl": "pkg:pypi/defusedxml",
+      "bom-ref": "pypi/defusedxml@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "Pillow",
+      "version": ">=8.3.2",
+      "purl": "pkg:pypi/pillow@8.3.2",
+      "bom-ref": "pypi/Pillow@>=8.3.2"
+    },
+    {
+      "type": "library",
+      "name": "fonttools",
+      "version": ">=4.34.0",
+      "purl": "pkg:pypi/fonttools@4.34.0",
+      "bom-ref": "pypi/fonttools@>=4.34.0"
+    },
+    {
+      "type": "library",
+      "name": "leaflet",
+      "version": "1.9.4",
+      "purl": "pkg:npm/leaflet@1.9.4",
+      "bom-ref": "npm/leaflet@1.9.4"
+    },
+    {
+      "type": "library",
+      "name": "leaflet-control-geocoder",
+      "version": "~2.4.0",
+      "purl": "pkg:npm/leaflet-control-geocoder@~2.4.0",
+      "bom-ref": "npm/leaflet-control-geocoder@~2.4.0"
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "FPDF2",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\ARCHITECTURAL_DESIGN\\FPDF2\\UPSTREAM_CLONE",
+    "git": {
+      "head": "f6e67a42eddb112b4c31401388babf0daf6d1c5b",
+      "url": "https://github.com/pyfpdf/fpdf2",
+      "branch": "master",
+      "committed_at": "2026-09-29T09:10:08-04:00"
+    }
+  },
+  "metrics": {
+    "files_total": 142,
+    "source_files_scanned": 86,
+    "lines_of_code": 40819,
+    "languages": {
+      ".py": 82,
+      ".md": 10,
+      "(none)": 8,
+      ".pdf": 8,
+      ".sh": 6,
+      ".yml": 5,
+      ".json": 5,
+      ".txt": 3,
+      ".toml": 2,
+      ".icc": 2,
+      ".yaml": 1,
+      ".in": 1,
+      ".ini": 1,
+      ".png": 1,
+      ".jinja2": 1
+    }
+  },
+  "licence": {
+    "spdx": "LGPL-3.0",
+    "class": "B",
+    "source_file": "LICENSE",
+    "redistribution_allowed": false
+  },
+  "dependencies": {
+    "count": 5,
+    "unique": 5,
+    "by_ecosystem": {
+      "npm": 2,
+      "pypi": 3
+    },
+    "list": [
+      {
+        "ecosystem": "pypi",
+        "name": "defusedxml",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "defusedxml"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "Pillow",
+        "version": ">=8.3.2",
+        "source_file": "pyproject.toml",
+        "raw": "Pillow>=8.3.2"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "fonttools",
+        "version": ">=4.34.0",
+        "source_file": "pyproject.toml",
+        "raw": "fonttools>=4.34.0"
+      },
+      {
+        "ecosystem": "npm",
+        "name": "leaflet",
+        "version": "1.9.4",
+        "source_file": "contributors/package.json",
+        "raw": ""
+      },
+      {
+        "ecosystem": "npm",
+        "name": "leaflet-control-geocoder",
+        "version": "~2.4.0",
+        "source_file": "contributors/package.json",
+        "raw": ""
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 19,
+    "files_with_findings": 15,
+    "severity": {
+      "high": 4,
+      "medium": 3,
+      "low": 12
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 3,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "fpdf/encryption.py",
+            "line": 398,
+            "cwe": "CWE-327",
+            "snippet": "m = md5(m)"
+          },
+          {
+            "severity": "high",
+            "file": "fpdf/enums.py",
+            "line": 1682,
+            "cwe": "CWE-327",
+            "snippet": "RC4 = 1"
+          },
+          {
+            "severity": "medium",
+            "file": "fpdf/fpdf.py",
+            "line": 3044,
+            "cwe": "CWE-327",
+            "snippet": "checksum (bool): insert a MD5 checksum of the file content - False by default"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "scripts/compare-changed-pdfs.py",
+            "line": 38,
+            "cwe": "CWE-78",
+            "snippet": "stdout = check_output(f\"git diff --name-status {GIT_REF}\", shell=True)"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 4,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "fpdf/image_parsing.py",
+            "line": 896,
+            "cwe": "CWE-",
+            "snippet": "# the hack."
+          },
+          {
+            "severity": "low",
+            "file": "fpdf/linearization.py",
+            "line": 2,
+            "cwe": "CWE-",
+            "snippet": "# pylint: disable=fixme,protected-access"
+          },
+          {
+            "severity": "low",
+            "file": "fpdf/text_region.py",
+            "line": 844,
+            "cwe": "CWE-",
+            "snippet": "# Give the last column more space in case the balancing is out of whack."
+          },
+          {
+            "severity": "low",
+            "file": "scripts/install-pdfchecker.sh",
+            "line": 12,
+            "cwe": "CWE-",
+            "snippet": "export TMPDIR=$(mktemp -d /tmp/pdfchecker.XXXXXX)"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 0,
+        "findings": []
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "scripts/create-endesive-certificates.sh",
+            "line": 11,
+            "cwe": "CWE-798",
+            "snippet": "P12_PASSWORD=\"fpdf2\""
+          }
+        ]
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 9,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "fpdf/bidi.py",
+            "line": 298,
+            "cwe": "CWE-319",
+            "snippet": "- Basic definitions 14, 15 and 16: http://www.unicode.org/reports/tr9/#BD14"
+          },
+          {
+            "severity": "low",
+            "file": "fpdf/encryption.py",
+            "line": 55,
+            "cwe": "CWE-319",
+            "snippet": "* http://people.csail.mit.edu/rivest/pubs/RS14.pdf"
+          },
+          {
+            "severity": "low",
+            "file": "fpdf/fpdf.py",
+            "line": 6889,
+            "cwe": "CWE-319",
+            "snippet": "registry_name=\"http://www.color.org\","
+          },
+          {
+            "severity": "low",
+            "file": "fpdf/output.py",
+            "line": 2053,
+            "cwe": "CWE-319",
+            "snippet": "'    xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"',"
+          },
+          {
+            "severity": "low",
+            "file": "fpdf/svg.py",
+            "line": 83,
+            "cwe": "CWE-319",
+            "snippet": "\"svg\": \"http://www.w3.org/2000/svg\","
+          },
+          {
+            "severity": "low",
+            "file": "scripts/compare-changed-pdfs.py",
+            "line": 74,
+            "cwe": "CWE-319",
+            "snippet": "webbrowser.open(f\"http://localhost:{PORT}/{TEMPLATE_FILENAME}\")"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/create-endesive-certificates.sh",
+            "line": 42,
+            "cwe": "CWE-319",
+            "snippet": "caIssuers;URI.0 = http://ca.example.com/ca.pem"
+          },
+          {
+            "severity": "high",
+            "file": "scripts/install-verapdf.sh",
+            "line": 16,
+            "cwe": "CWE-494",
+            "snippet": "wget --no-check-certificate --quiet ${ZIP_URL}"
+          },
+          {
+            "severity": "low",
+            "file": "tutorial/unicode.py",
+            "line": 10,
+            "cwe": "CWE-319",
+            "snippet": "# http://dejavu.svn.sourceforge.net/viewvc/dejavu/trunk/dejavu-fonts/langcover.txt"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "tutorial/equation_google_charts.py",
+            "line": 9,
+            "cwe": "CWE-918",
+            "snippet": "with urlopen(url) as img_file:  # nosec B310"
+          }
+        ]
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 3,
+    "files_with_findings": 3,
+    "severity": {
+      "high": 0,
+      "medium": 1,
+      "low": 2
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "fpdf/template.py",
+            "line": 737,
+            "cwe": "CWE-1336",
+            "snippet": "class Template(FlexTemplate):"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "fpdf/drawing_primitives.py",
+            "line": 125,
+            "cwe": "CWE-",
+            "snippet": "def is_achromatic(self) -> bool:"
+          },
+          {
+            "severity": "low",
+            "file": "fpdf/pattern.py",
+            "line": 497,
+            "cwe": "CWE-",
+            "snippet": "# 6) All RGB: optionally downcast to Gray if all are achromatic"
+          }
+        ]
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:5ce0738b-fbc8-5b00-b425-eb71356f0128",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-05T14:34:50Z",
+      "component": {
+        "type": "application",
+        "name": "FPDF2",
+        "version": "f6e67a42eddb",
+        "bom-ref": "pkg:generic/anticloud/FPDF2@f6e67a42eddb",
+        "purl": "pkg:generic/anticloud/FPDF2@f6e67a42eddb",
+        "licenses": [
+          {
+            "license": {
+              "id": "LGPL-3.0"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "f6e67a42eddb112b4c31401388babf0daf6d1c5b"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/pyfpdf/fpdf2"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "defusedxml",
+        "version": "unspecified",
+        "purl": "pkg:pypi/defusedxml",
+        "bom-ref": "pypi/defusedxml@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "Pillow",
+        "version": ">=8.3.2",
+        "purl": "pkg:pypi/pillow@8.3.2",
+        "bom-ref": "pypi/Pillow@>=8.3.2"
+      },
+      {
+        "type": "library",
+        "name": "fonttools",
+        "version": ">=4.34.0",
+        "purl": "pkg:pypi/fonttools@4.34.0",
+        "bom-ref": "pypi/fonttools@>=4.34.0"
+      },
+      {
+        "type": "library",
+        "name": "leaflet",
+        "version": "1.9.4",
+        "purl": "pkg:npm/leaflet@1.9.4",
+        "bom-ref": "npm/leaflet@1.9.4"
+      },
+      {
+        "type": "library",
+        "name": "leaflet-control-geocoder",
+        "version": "~2.4.0",
+        "purl": "pkg:npm/leaflet-control-geocoder@~2.4.0",
+        "bom-ref": "npm/leaflet-control-geocoder@~2.4.0"
+      }
+    ]
+  },
+  "elapsed_seconds": 61.77
+}
